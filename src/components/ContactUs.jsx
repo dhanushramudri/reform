@@ -88,7 +88,7 @@ const ContactUs = () => {
           </div>
           <div className={styles.center}>
             <MdOutlineEmail className={styles.contactIcon} />
-            Loremispsom@gmai.com
+            Loremipsom@gmail.com
           </div>
           <div className={styles.center}>
             <HiOutlineLocationMarker className={styles.contactIcon} />
@@ -105,6 +105,7 @@ const ContactUs = () => {
             placeholder="First Name"
             value={firstName}
             onChange={handleFirstNameChange}
+            className={styles.inputField}
           />
           <input
             type="text"
@@ -112,6 +113,7 @@ const ContactUs = () => {
             placeholder="Last Name"
             value={lastName}
             onChange={handleLastNameChange}
+            className={styles.inputField}
           />
         </div>
         <input
@@ -120,6 +122,7 @@ const ContactUs = () => {
           placeholder="Email address"
           value={email}
           onChange={handleEmailChange}
+          className={styles.inputField}
         />
         <input
           type="number"
@@ -127,13 +130,14 @@ const ContactUs = () => {
           placeholder="Phone No"
           value={phone}
           onChange={handlePhoneChange}
+          className={styles.inputField}
         />
         <textarea
           name="message"
-          className={styles.textareaInput}
           placeholder="Message"
           value={message}
           onChange={handleMessageChange}
+          className={styles.textareaInput}
         ></textarea>
         <div className={styles.row2}>
           {toggleOn ? (
