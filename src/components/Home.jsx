@@ -1,11 +1,27 @@
 import React from "react";
-import mockup from "../images/mockup.jpg";
+import Flashcardlist from "./Flashcardlist";
 
 const Home = () => {
+  const SAMPLE_QUESTIONS = [
+    {
+      id: 1,
+      question: "What is the capital of France?",
+      answer: "Paris",
+    },
+    {
+      id: 2,
+      question: "What is the capital of Spain?",
+      answer: "Madrid",
+    },
+    {
+      id: 3,
+      question: "What is the capital of Germany?",
+      answer: "Berlin",
+    },
+  ];
   return (
-    <div className="App">
-      <img src={mockup} alt="" />
-      <h3>App</h3>
+    <div>
+      <Flashcardlist sample_questions={SAMPLE_QUESTIONS} />
     </div>
   );
 };
