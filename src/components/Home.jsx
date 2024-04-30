@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import Flashcardlist from "./Flashcardlist";
 import Navbar from "./Navbar";
 import "../App.css";
 
 const Home = () => {
   const [fetchedData, setFetchedData] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const { category, number } = useParams();
+
+  useEffect(() => {
+    fetch("https://opentdb.com/api_category.php").then((res) => {
+      //   setCategories(res.data.trivia_categories);
+      console.log(res.data);
+    });
+  }, []);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://opentdb.com/api.php?amount=10");
+        const response = await fetch(
+          `https://opentdb.com/api.php?amount=${number}&category=${category}`
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -29,13 +43,13 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [category, number]);
 
   console.log(fetchedData);
 
   return (
     <div>
-      <Navbar />
+      <Navbar categories={categories} />
       <div className="flashcardlist-container">
         <Flashcardlist sample_questions={fetchedData} />
       </div>

@@ -7,8 +7,6 @@ const Flashcard = ({ question, answer, incorrect_answers, options }) => {
     setFlip(!flip);
   };
 
-  console.log(options);
-
   return (
     <div className="flashcard" onClick={handleClick}>
       {flip ? (

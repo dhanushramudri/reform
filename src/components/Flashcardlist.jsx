@@ -10,8 +10,6 @@ const Flashcardlist = ({ sample_questions }) => {
     return shuffleOptions;
   });
 
-  console.log(options);
-
   return (
     <div className="flashcardlist">
       {sample_questions.map((ques, idx) => {
