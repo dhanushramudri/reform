@@ -30,3 +30,27 @@ body {
 .options {
   background-color: pink;
 }
+.navbar {
+  background-color: beige;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  padding: 2% 0;
+}
+form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+}
+
+button {
+  background-color: slateblue;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: beige;
+  font-weight: 600;
+}

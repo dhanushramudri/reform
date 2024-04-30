@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../App.css";
 
 const Navbar = ({ data, categories }) => {
   const [category, setCategory] = useState("Indian");
