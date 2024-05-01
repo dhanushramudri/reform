@@ -10,7 +10,7 @@ const Navbar = ({ data, categories, onCategoryChange, onNumberChange }) => {
     e.preventDefault();
     console.log("Category:", selectedCategory);
     console.log("Number:", number);
-    onCategoryChange(selectedCategory); // Pass selectedCategory to parent
+    onCategoryChange(selectedCategory); // Pass selectedCategory to parent-+
     onNumberChange(number);
   };
 

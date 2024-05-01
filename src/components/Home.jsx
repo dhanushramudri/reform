@@ -18,6 +18,12 @@ const Home = ({ onCategoryChange, onNumberChange }) => {
     setSelectedNumber(number);
   };
 
+  const params = useParams();
+  useEffect(() => {
+    console.log("Category param:", params.category);
+    console.log("Number param:", params.number);
+  }, [params]);
+
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
       .then((res) => {
