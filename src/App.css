@@ -5,7 +5,7 @@ body {
 
 .flashcardlist {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   background-color: grey;
 }
 .flashcard {
@@ -21,8 +21,12 @@ body {
 .flashcardlist-container {
   margin: 2%;
 }
+
 .question {
+  width: 100%;
   background-color: grey;
+  box-sizing: border-box;
+  padding: 20px;
 }
 .answer {
   background-color: green;
