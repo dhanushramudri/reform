@@ -4,10 +4,19 @@ import Flashcardlist from "./Flashcardlist";
 import Navbar from "./Navbar";
 import "../App.css";
 
-const Home = () => {
+const Home = ({ onCategoryChange, onNumberChange }) => {
   const [fetchedData, setFetchedData] = useState([]);
   const [categories, setCategories] = useState([]);
-  const { category, number } = useParams();
+  const [selectedNumber, setSelectedNumber] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const handleNumberChange = (number) => {
+    setSelectedNumber(number);
+  };
 
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
@@ -25,7 +34,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://opentdb.com/api.php?amount=${10}`
+          `https://opentdb.com/api.php?amount=${selectedNumber}&category=${selectedCategory}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -45,13 +54,17 @@ const Home = () => {
     };
 
     fetchData();
-  }, [category, number]);
+  }, [selectedNumber, selectedCategory]);
 
   console.log(fetchedData);
 
   return (
     <div>
-      <Navbar categories={categories} />
+      <Navbar
+        categories={categories}
+        onCategoryChange={handleCategoryChange}
+        onNumberChange={handleNumberChange}
+      />
       <div className="flashcardlist-container">
         <Flashcardlist sample_questions={fetchedData} />
       </div>

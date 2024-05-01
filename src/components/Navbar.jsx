@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import "../App.css";
+import { AiOutlineNumber } from "react-icons/ai";
 
-const Navbar = ({ data, categories }) => {
-  const [category, setCategory] = useState("Indian");
+const Navbar = ({ data, categories, onCategoryChange, onNumberChange }) => {
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [number, setNumber] = useState(10);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("Category:", category);
+    console.log("Category:", selectedCategory);
     console.log("Number:", number);
+    onCategoryChange(selectedCategory); // Pass selectedCategory to parent
+    onNumberChange(number);
   };
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
+    setSelectedCategory(e.target.value);
   };
 
   const handleNumberChange = (e) => {
@@ -23,7 +26,7 @@ const Navbar = ({ data, categories }) => {
     <div className="navbar">
       <form onSubmit={submitHandler}>
         <label htmlFor="category">Category</label>
-        <select id="category">
+        <select id="category" onChange={handleCategoryChange}>
           {categories.map((category) => {
             return (
               <option value={category.id} key={category.id}>
