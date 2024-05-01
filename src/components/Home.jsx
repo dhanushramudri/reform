@@ -10,16 +10,17 @@ const Home = () => {
   const { category, number } = useParams();
 
   useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=10")
+    fetch("https://opentdb.com/api_category.php")
       .then((res) => {
-        //   setCategories(res.data.trivia_categories);
         return res.json();
       })
-      .then((data) => console.log("data is ", data));
+      .then((data) => {
+        console.log("category data is ", data.trivia_categories);
+        setCategories(data.trivia_categories);
+      });
   }, []);
 
-  useEffect(() => {}, []);
-
+  console.log("new categories", categories);
   useEffect(() => {
     const fetchData = async () => {
       try {
